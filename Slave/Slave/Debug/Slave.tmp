@@ -1,0 +1,43 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega324P"</DEVICE>
+ <WORKING_DIR>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Slave\Slave\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Slave\Slave\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m324Pdef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Slave\Slave\Debug\Slave.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Slave.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Slave.map</FILE>
+  <FILE>Slave.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <main><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Slave\Slave\main.asm</FILE><LINE>3</LINE></main>
+  <portinit><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Slave\Slave\main.asm</FILE><LINE>15</LINE></portinit>
+  <spiinit><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Slave\Slave\main.asm</FILE><LINE>26</LINE></spiinit>
+  <loop><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Slave\Slave\main.asm</FILE><LINE>7</LINE></loop>
+  <scankey><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Slave\Slave\main.asm</FILE><LINE>41</LINE></scankey>
+  <spiin><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Slave\Slave\main.asm</FILE><LINE>31</LINE></spiin>
+  <sspi_wait_receive><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Slave\Slave\main.asm</FILE><LINE>34</LINE></sspi_wait_receive>
+  <keypad_scan_loop><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Slave\Slave\main.asm</FILE><LINE>48</LINE></keypad_scan_loop>
+  <delay><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Slave\Slave\main.asm</FILE><LINE>97</LINE></delay>
+  <keypad_scan_check_col_2><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Slave\Slave\main.asm</FILE><LINE>55</LINE></keypad_scan_check_col_2>
+  <keypad_scan_found><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Slave\Slave\main.asm</FILE><LINE>80</LINE></keypad_scan_found>
+  <keypad_scan_check_col_3><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Slave\Slave\main.asm</FILE><LINE>61</LINE></keypad_scan_check_col_3>
+  <keypad_scan_check_col_4><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Slave\Slave\main.asm</FILE><LINE>67</LINE></keypad_scan_check_col_4>
+  <keypad_scan_next_row><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Slave\Slave\main.asm</FILE><LINE>73</LINE></keypad_scan_next_row>
+  <keypad_scan_not_found><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Slave\Slave\main.asm</FILE><LINE>93</LINE></keypad_scan_not_found>
+  <digit><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Slave\Slave\main.asm</FILE><LINE>89</LINE></digit>
+  <delayloop><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Slave\Slave\main.asm</FILE><LINE>108</LINE></delayloop>
+ </LABELS>
+</ASSEMBLER_INFO>
