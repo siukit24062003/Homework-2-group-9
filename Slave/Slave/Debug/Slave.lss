@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Slave\Slave\main.asm Wed Nov 22 07:50:44 2023
+AVRASM ver. 2.2.7  D:\Homework 2 group 9\Slave\Slave\main.asm Wed Nov 22 22:00:03 2023
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m324Pdef.inc'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m324Pdef.inc'
@@ -1153,31 +1153,31 @@ AVRASM ver. 2.2.8  C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Slave\Slave\mai
                                  
                                  
                                  main:
-000000 940e 000c                 call portinit
+000000 940e 000c                 call portinit		; call portinit subroutine
 000002 940e 0015                 call spiinit
                                  
                                  loop:
-000004 9900                      sbic pina, 0
-000005 cffe                      rjmp loop
+000004 9900                      sbic pina, 0		; skip if bit 0 is pina is clear
+000005 cffe                      rjmp loop			; rejump to loop subroutine
 000006 9a11                      sbi porta, 1
 000007 940e 001f                 call scankey
 000009 940e 0018                 call spiin
 00000b cff8                      rjmp loop
                                  
                                  portinit:
-00000c e002                      ldi r16, 2
+00000c e002                      ldi r16, 2			; load 2 to r16
 00000d b901                      out ddra, r16
-00000e e402                      ldi r16, (1 << 6) | (1 << 1)
+00000e e402                      ldi r16, (1 << 6) | (1 << 1)	; load binary value 01000010 into register r16
 00000f b904                      out ddrb, r16
 000010 e00f                      ldi r16, 0x0f
-000011 b90a                      out ddrd, r16
-000012 ef00                      ldi r16, 0xf0
+000011 b90a                      out ddrd, r16		; set data direction register D to configure pins 7-4 as outputs
+000012 ef00                      ldi r16, 0xf0		; load 0xf0 to r16
 000013 b90b                      out portd, r16
 000014 9508                      ret
                                  
                                  spiinit:
-000015 e400                      ldi r16, (1 << spe0)
-000016 bd0c                      out spcr0, r16
+000015 e400                      ldi r16, (1 << spe0)	; load the value that shift left 1 bit of spe0 to r16
+000016 bd0c                      out spcr0, r16			
 000017 9508                      ret
                                  
                                  spiin:
@@ -1186,38 +1186,38 @@ AVRASM ver. 2.2.8  C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Slave\Slave\mai
                                  sspi_wait_receive:
 00001a b50d                      in r16, spsr0
 00001b ff07                      sbrs r16, spif0
-00001c cffd                      rjmp sspi_wait_receive
+00001c cffd                      rjmp sspi_wait_receive	; rejump to sspi_wait_receive subroutine
 00001d 9a11                      sbi porta, 1
 00001e 9508                      ret
                                  
                                  scankey:
 00001f e04f                      ldi r20, 0x0f
 000020 b94b                      out portd, r20
-000021 ef67                      ldi r22, 0b11110111
-000022 e070                      ldi r23, 0
+000021 ef67                      ldi r22, 0b11110111		; load  247 to r22
+000022 e070                      ldi r23, 0				; load 0 to r23
 000023 e083                      ldi r24, 3
                                  
                                  keypad_scan_loop:
 000024 b96b                      out portd, r22
 000025 940e 0047                 call delay
-000027 994c                      sbic pind, 4
-000028 c001                      rjmp keypad_scan_check_col_2
+000027 994c                      sbic pind, 4					; skip if bit 4 of pind is clear
+000028 c001                      rjmp keypad_scan_check_col_2	; rejump to keypad_scan_check_col_2 subroutine
 000029 c011                      rjmp keypad_scan_found
                                  
                                  keypad_scan_check_col_2:
-00002a 994d                      sbic pind, 5
+00002a 994d                      sbic pind, 5					; skip if bit 5 of pind is clear
 00002b c002                      rjmp keypad_scan_check_col_3
 00002c e071                      ldi r23, 1
 00002d c00d                      rjmp keypad_scan_found
                                  
                                  keypad_scan_check_col_3:
-00002e 994e                      sbic pind, 6
+00002e 994e                      sbic pind, 6					; skip if bit 6 of pind is clear
 00002f c002                      rjmp keypad_scan_check_col_4
 000030 e072                      ldi r23, 2
 000031 c009                      rjmp keypad_scan_found
                                  
                                  keypad_scan_check_col_4:
-000032 994f                      sbic pind, 7
+000032 994f                      sbic pind, 7					; skip if bit 7 of pind is clear
 000033 c002                      rjmp keypad_scan_next_row
 000034 e073                      ldi r23, 3
 000035 c005                      rjmp keypad_scan_found
@@ -1225,15 +1225,16 @@ AVRASM ver. 2.2.8  C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Slave\Slave\mai
                                  keypad_scan_next_row:
 000036 3080                      cpi r24, 0
 000037 f069                      breq keypad_scan_not_found
-000038 9567                      ror r22
+000038 9567                      ror r22							; rotate right rhrough rarry on register r22
 000039 958a                      dec r24
 00003a cfe9                      rjmp keypad_scan_loop
                                  
                                  keypad_scan_found:
+                                 ; left shift the contents of register r23 twice to position the keypad value
 00003b 0f77                      lsl r23
 00003c 0f77                      lsl r23
 00003d 0f78                      add r23, r24 ; keypad value in r23
-00003e 2f17                      mov r17, r23
+00003e 2f17                      mov r17, r23 ; move r23 to r17 
 00003f 301a                      cpi r17, 10
 000040 f010                      brlo digit
 000041 5a19                      subi r17, -87
@@ -1247,10 +1248,10 @@ AVRASM ver. 2.2.8  C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Slave\Slave\mai
 000046 9508                      ret
                                  
                                  delay:
-000047 e00a                      ldi r16, 0b00001010
-000048 9300 0081                 sts tccr1b, r16
-00004a e207                      ldi r16, 0x27
-00004b 9300 0089                 sts ocr1ah, r16
+000047 e00a                      ldi r16, 0b00001010			 ; load the binary value 00001010 into register r16
+000048 9300 0081                 sts tccr1b, r16					
+00004a e207                      ldi r16, 0x27				 ; load 0x27 to r16
+00004b 9300 0089                 sts ocr1ah, r16					
 00004d e100                      ldi r16, 0x10
 00004e 9300 0088                 sts ocr1al, r16
 000050 2700                      clr r16
@@ -1258,7 +1259,7 @@ AVRASM ver. 2.2.8  C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Slave\Slave\mai
 000053 9300 0084                 sts tcnt1l, r16
                                  
                                  delayloop:
-000055 9bb1                      sbis tifr1, ocf1a
+000055 9bb1                      sbis tifr1, ocf1a			; skip if bit 1 of timer/counter interrupt flag register 1 is set
 000056 cffe                      rjmp delayloop
 000057 9ab1                      sbi tifr1, ocf1a
 000058 2700                      clr r16

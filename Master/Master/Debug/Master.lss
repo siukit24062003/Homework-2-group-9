@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Master\Master\main.asm Wed Nov 22 07:54:01 2023
+AVRASM ver. 2.2.7  D:\Homework 2 group 9\Master\Master\main.asm Wed Nov 22 21:47:30 2023
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m324Pdef.inc'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m324Pdef.inc'
@@ -1151,21 +1151,21 @@ AVRASM ver. 2.2.8  C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Master\Master\m
                                  
                                  ; ***** END OF FILE ******************************************************
                                  
-000000 c002                      rjmp main
+000000 c002                      rjmp main			; Jump to the main routine
                                  
                                  .org $0002
-000002 c08f                      rjmp exint0
+000002 c08f                      rjmp exint0			; Jump to the exint0 routine
                                  
-                                 main:
-000003 9a29                      sbi portb, 1
+                                 main:	
+000003 9a29                      sbi portb, 1		; Set bit 1 of port B
 000004 940e 0010                 call init_port
 000006 940e 0015                 call init_lcd
 000008 940e 0025                 call spiinit
 00000a 940e 0033                 call uartinit
 00000c 940e 004e                 call init_int0
                                  
-                                 loop:
-00000e 9829                      cbi portb, 1
+                                 loop:	
+00000e 9829                      cbi portb, 1		; Clear bit 1 of port B
 00000f cffe                      rjmp loop
                                  
                                  init_port:
@@ -1175,15 +1175,15 @@ AVRASM ver. 2.2.8  C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Master\Master\m
 000014 9508                      ret
                                  
                                  init_lcd:
-000015 e002                      ldi r16, 0x02
+000015 e002                      ldi r16, 0x02		; Load 0x02 for LCD initialization
 000016 940e 0055                 call lcd_command
-000018 e208                      ldi r16, 0x28
+000018 e208                      ldi r16, 0x28		; Load 0x28 for LCD initialization
 000019 940e 0055                 call lcd_command
-00001b e00e                      ldi r16, 0x0e
+00001b e00e                      ldi r16, 0x0e		; Load 0x0e for LCD initialization
 00001c 940e 0055                 call lcd_command
-00001e e001                      ldi r16, 0x01
+00001e e001                      ldi r16, 0x01		; Load 0x01 for LCD initialization
 00001f 940e 0055                 call lcd_command
-000021 e800                      ldi r16, 0x80
+000021 e800                      ldi r16, 0x80		; Load 0x80 for LCD initialization
 000022 940e 0055                 call lcd_command
 000024 9508                      ret
                                  
@@ -1196,8 +1196,8 @@ AVRASM ver. 2.2.8  C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Master\Master\m
 00002a 9508                      ret
                                  
                                  spiout:
-00002b 982c                      cbi portb, 4
-00002c bd1e                      out spdr0, r17
+00002b 982c                      cbi portb, 4		; Clear PB4 
+00002c bd1e                      out spdr0, r17		; Load data to SPI data register
                                  
                                  wait_transmit:
 00002d b50d                      in r16, spsr0
@@ -1208,36 +1208,36 @@ AVRASM ver. 2.2.8  C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Master\Master\m
 000032 9508                      ret
                                  
                                  uartinit:
-000033 e00c                      ldi r16, 12
+000033 e00c                      ldi r16, 12			; load 12 for UART baud rate setting
 000034 9300 00c4                 sts ubrr0l, r16
 000036 e002                      ldi r16, (1 << u2x0)
 000037 9300 00c0                 sts ucsr0a, r16
-000039 e108                      ldi r16, (1 << rxen0) | (1 << txen0)
+000039 e108                      ldi r16, (1 << rxen0) | (1 << txen0) ; load the value that is shift 1 bit to the left of receive Enable and rransmit Enable bits to r16 
 00003a 9300 00c1                 sts ucsr0b, r16
 00003c e006                      ldi r16, (1 << ucsz01) | (1 << ucsz00)
 00003d 9300 00c2                 sts ucsr0c, r16
 00003f 9508                      ret
                                  
                                  uartout:
-000040 9100 00c0                 lds r16, ucsr0a
+000040 9100 00c0                 lds r16, ucsr0a		; load UART control and status register A
 000042 ff05                      sbrs r16, udre0
-000043 cffc                      rjmp uartout
-000044 9310 00c6                 sts udr0, r17
+000043 cffc                      rjmp uartout		
+000044 9310 00c6                 sts udr0, r17		; coad data to UART data register
 000046 9508                      ret
                                  
                                  data_receive:
 000047 9100 00c0                 lds r16, ucsr0a
 000049 ff07                      sbrs r16, rxc0
-00004a cffc                      rjmp data_receive
+00004a cffc                      rjmp data_receive	; continue waiting for data reception
 00004b 9110 00c6                 lds r17, udr0
 00004d 9508                      ret
                                  
                                  init_int0:
 00004e 9478                      sei
-00004f e002                      ldi r16, (1 << isc01)
+00004f e002                      ldi r16, (1 << isc01)	
 000050 9300 0069                 sts eicra, r16
 000052 e001                      ldi r16, (1 << int0)
-000053 bb0d                      out eimsk, r16
+000053 bb0d                      out eimsk, r16		; set external interrupt mask register
 000054 9508                      ret
                                  
                                  lcd_command:
@@ -1250,19 +1250,19 @@ AVRASM ver. 2.2.8  C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Master\Master\m
 00005b 9812                      cbi porta, 2
 00005c d01d                      rcall delay_100us
                                  
-00005d 9502                      swap r16
+00005d 9502                      swap r16			; swap the nibbles of the register
 00005e 7f00                      andi r16, 0xf0
 00005f b902                      out porta, r16
 000060 9a12                      sbi porta, 2
 000061 d015                      rcall sdelay
-000062 9812                      cbi porta, 2
+000062 9812                      cbi porta, 2		; clear PA2
 000063 d016                      rcall delay_100us
 000064 9508                      ret
                                  
                                  lcd_data:
 000065 d024                      rcall delay_20ms
 000066 2f20                      mov r18, r16
-000067 7f20                      andi r18, 0xf0
+000067 7f20                      andi r18, 0xf0	
 000068 b922                      out porta, r18
 000069 9a10                      sbi porta, 0
 00006a 9a12                      sbi porta, 2
@@ -1286,18 +1286,18 @@ AVRASM ver. 2.2.8  C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Master\Master\m
 000079 9508                      ret
                                  
                                  delay_100us:
-00007a 931f                      push r17
-00007b e614                      ldi r17,100
+00007a 931f                      push r17			; save r17 on the stack
+00007b e614                      ldi r17,100			; load 100 for the delay counter
                                  dl1:
 00007c 940e 0077                 call sdelay
 00007e 951a                      dec r17
-00007f f7e1                      brne dl1
+00007f f7e1                      brne dl1			
 000080 911f                      pop r17
 000081 9508                      ret
                                  
                                  delay_2ms:
-000082 931f                      push r17
-000083 e114                      ldi r17,20
+000082 931f                      push r17			; save r17 on the stack
+000083 e114                      ldi r17,20			; load 20 for the delay counter
                                  ldr0:
 000084 940e 007a                 call delay_100us
 000086 951a                      dec r17
@@ -1311,7 +1311,7 @@ AVRASM ver. 2.2.8  C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Master\Master\m
                                  powerup:
 00008c 940e 0082                 call delay_2ms
 00008e 951a                      dec r17
-00008f f7e1                      brne powerup
+00008f f7e1                      brne powerup		;if r17 not equal to 0, jump to powerup
 000090 911f                      pop r17
 000091 9508                      ret
                                  
@@ -1319,13 +1319,13 @@ AVRASM ver. 2.2.8  C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Master\Master\m
 000092 e010                      ldi r17, 0
 000093 940e 002b                 call spiout
 000095 9a29                      sbi portb, 1
-000096 3f1f                      cpi r17, 0xff
+000096 3f1f                      cpi r17, 0xff		; compare (CPI) instruction compares register r17 with the immediate value 0xFF.
 000097 f039                      breq clear
-000098 2f01                      mov r16, r17
+000098 2f01                      mov r16, r17		; move r17 into r16.
 000099 940e 0065                 call lcd_data
 00009b e800                      ldi r16, 0x80
 00009c 940e 0055                 call lcd_command
-00009e c005                      rjmp next
+00009e c005                      rjmp next			; rejump to the next subroutine
                                  
                                  clear:
 00009f e001                      ldi r16, 0x01

@@ -1,18 +1,18 @@
 <ASSEMBLER_INFO>
- <VERSION>2.2.8</VERSION>
+ <VERSION>2.2.7</VERSION>
  <DEVICE>"ATmega324P"</DEVICE>
- <WORKING_DIR>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Master\Master\Debug</WORKING_DIR>
+ <WORKING_DIR>D:\Homework 2 group 9\Master\Master\Debug</WORKING_DIR>
  <INCLUDE_PATH>
   <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc</DIR>
   <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
   <DIR></DIR>
  </INCLUDE_PATH>
- <SOURCE_FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Master\Master\main.asm</SOURCE_FILE>
+ <SOURCE_FILE>D:\Homework 2 group 9\Master\Master\main.asm</SOURCE_FILE>
  <INCLUDED_FILES>
   <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m324Pdef.inc</FILE>
  </INCLUDED_FILES>
  <OBJECT_FILES>
-  <FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Master\Master\Debug\Master.obj</FILE>
+  <FILE>D:\Homework 2 group 9\Master\Master\Debug\Master.obj</FILE>
  </OBJECT_FILES>
  <HEX_FILES>
   <FILE>Master.hex</FILE>
@@ -22,28 +22,28 @@
   <FILE>Master.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <main><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Master\Master\main.asm</FILE><LINE>7</LINE></main>
-  <exint0><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Master\Master\main.asm</FILE><LINE>166</LINE></exint0>
-  <init_port><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Master\Master\main.asm</FILE><LINE>19</LINE></init_port>
-  <init_lcd><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Master\Master\main.asm</FILE><LINE>25</LINE></init_lcd>
-  <spiinit><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Master\Master\main.asm</FILE><LINE>38</LINE></spiinit>
-  <uartinit><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Master\Master\main.asm</FILE><LINE>58</LINE></uartinit>
-  <init_int0><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Master\Master\main.asm</FILE><LINE>83</LINE></init_int0>
-  <loop><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Master\Master\main.asm</FILE><LINE>15</LINE></loop>
-  <delay_20ms><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Master\Master\main.asm</FILE><LINE>156</LINE></delay_20ms>
-  <lcd_command><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Master\Master\main.asm</FILE><LINE>91</LINE></lcd_command>
-  <spiout><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Master\Master\main.asm</FILE><LINE>46</LINE></spiout>
-  <wait_transmit><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Master\Master\main.asm</FILE><LINE>50</LINE></wait_transmit>
-  <uartout><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Master\Master\main.asm</FILE><LINE>69</LINE></uartout>
-  <data_receive><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Master\Master\main.asm</FILE><LINE>76</LINE></data_receive>
-  <sdelay><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Master\Master\main.asm</FILE><LINE>131</LINE></sdelay>
-  <delay_100us><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Master\Master\main.asm</FILE><LINE>136</LINE></delay_100us>
-  <lcd_data><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Master\Master\main.asm</FILE><LINE>110</LINE></lcd_data>
-  <dl1><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Master\Master\main.asm</FILE><LINE>139</LINE></dl1>
-  <delay_2ms><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Master\Master\main.asm</FILE><LINE>146</LINE></delay_2ms>
-  <ldr0><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Master\Master\main.asm</FILE><LINE>149</LINE></ldr0>
-  <powerup><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Master\Master\main.asm</FILE><LINE>159</LINE></powerup>
-  <clear><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Master\Master\main.asm</FILE><LINE>178</LINE></clear>
-  <next><FILE>C:\Users\famif\Documents\YEAR 3\Lab-micro\hw2\Master\Master\main.asm</FILE><LINE>185</LINE></next>
+  <main><FILE>D:\Homework 2 group 9\Master\Master\main.asm</FILE><LINE>7</LINE></main>
+  <exint0><FILE>D:\Homework 2 group 9\Master\Master\main.asm</FILE><LINE>166</LINE></exint0>
+  <init_port><FILE>D:\Homework 2 group 9\Master\Master\main.asm</FILE><LINE>19</LINE></init_port>
+  <init_lcd><FILE>D:\Homework 2 group 9\Master\Master\main.asm</FILE><LINE>25</LINE></init_lcd>
+  <spiinit><FILE>D:\Homework 2 group 9\Master\Master\main.asm</FILE><LINE>38</LINE></spiinit>
+  <uartinit><FILE>D:\Homework 2 group 9\Master\Master\main.asm</FILE><LINE>58</LINE></uartinit>
+  <init_int0><FILE>D:\Homework 2 group 9\Master\Master\main.asm</FILE><LINE>83</LINE></init_int0>
+  <loop><FILE>D:\Homework 2 group 9\Master\Master\main.asm</FILE><LINE>15</LINE></loop>
+  <delay_20ms><FILE>D:\Homework 2 group 9\Master\Master\main.asm</FILE><LINE>156</LINE></delay_20ms>
+  <lcd_command><FILE>D:\Homework 2 group 9\Master\Master\main.asm</FILE><LINE>91</LINE></lcd_command>
+  <spiout><FILE>D:\Homework 2 group 9\Master\Master\main.asm</FILE><LINE>46</LINE></spiout>
+  <wait_transmit><FILE>D:\Homework 2 group 9\Master\Master\main.asm</FILE><LINE>50</LINE></wait_transmit>
+  <uartout><FILE>D:\Homework 2 group 9\Master\Master\main.asm</FILE><LINE>69</LINE></uartout>
+  <data_receive><FILE>D:\Homework 2 group 9\Master\Master\main.asm</FILE><LINE>76</LINE></data_receive>
+  <sdelay><FILE>D:\Homework 2 group 9\Master\Master\main.asm</FILE><LINE>131</LINE></sdelay>
+  <delay_100us><FILE>D:\Homework 2 group 9\Master\Master\main.asm</FILE><LINE>136</LINE></delay_100us>
+  <lcd_data><FILE>D:\Homework 2 group 9\Master\Master\main.asm</FILE><LINE>110</LINE></lcd_data>
+  <dl1><FILE>D:\Homework 2 group 9\Master\Master\main.asm</FILE><LINE>139</LINE></dl1>
+  <delay_2ms><FILE>D:\Homework 2 group 9\Master\Master\main.asm</FILE><LINE>146</LINE></delay_2ms>
+  <ldr0><FILE>D:\Homework 2 group 9\Master\Master\main.asm</FILE><LINE>149</LINE></ldr0>
+  <powerup><FILE>D:\Homework 2 group 9\Master\Master\main.asm</FILE><LINE>159</LINE></powerup>
+  <clear><FILE>D:\Homework 2 group 9\Master\Master\main.asm</FILE><LINE>178</LINE></clear>
+  <next><FILE>D:\Homework 2 group 9\Master\Master\main.asm</FILE><LINE>185</LINE></next>
  </LABELS>
 </ASSEMBLER_INFO>
